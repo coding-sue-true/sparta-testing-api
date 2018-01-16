@@ -115,43 +115,58 @@ describe "Post Codes" do
     expect(@post_codes.single_pc_result['longitude']).to be_between(-180,180)
   end
 
-  it "latitude has to be type of Float" do
+  it "latitude has to be type of Float and be between 0 and 90 degrees" do
     expect(@post_codes.single_pc_result['latitude']).to be_kind_of(Float)
     expect(@post_codes.single_pc_result['latitude']).to be_between(0,90)
   end
 
-  it "inside codes, admin_district has to be a string" do
+  it "inside codes, admin_district has to be a string and have 9 digits" do
     expect(@post_codes.single_pc_codes['admin_district']).to be_kind_of(String)
     expect(@post_codes.single_pc_codes['admin_district'].size).to eq 9
   end
 
-  it "inside codes, admin_county has to be a string" do
+  it "inside codes, admin_county has to be a string and have 9 digits" do
     expect(@post_codes.single_pc_codes['admin_county']).to be_kind_of(String)
     expect(@post_codes.single_pc_codes['admin_county'].size).to eq 9
   end
 
-  it "inside codes, admin_ward has to be a string" do
+  it "inside codes, admin_ward has to be a string and have 9 digits" do
     expect(@post_codes.single_pc_codes['admin_ward']).to be_kind_of(String)
     expect(@post_codes.single_pc_codes['admin_ward'].size).to eq 9
   end
 
-  it "inside codes, parish has to be a string" do
+  it "inside codes, parish has to be a string and have 9 digits" do
     expect(@post_codes.single_pc_codes['parish']).to be_kind_of(String)
     expect(@post_codes.single_pc_codes['parish'].size).to eq 9
   end
 
-  it "inside codes, parliamentary_constituency has to be a string" do
+  it "inside codes, parliamentary_constituency has to be a string and have 9 digits" do
     expect(@post_codes.single_pc_codes['parliamentary_constituency']).to be_kind_of(String)
     expect(@post_codes.single_pc_codes['parliamentary_constituency'].size).to eq 9
   end
 
-  it "inside codes, ccg has to be a string" do
+  it "inside codes, ccg has to be a string and have 9 digits" do
     expect(@post_codes.single_pc_codes['ccg']).to be_kind_of(String)
     expect(@post_codes.single_pc_codes['ccg'].size).to eq 9
   end
 
-  it "inside codes, nuts has to be a string" do
+  it "inside codes, nuts has to be a string and have 5 digits" do
     expect(@post_codes.single_pc_codes['nuts']).to be_kind_of(String)
     expect(@post_codes.single_pc_codes['nuts'].size).to eq 5
   end
+
+  it "Multiple Post Codes should be an hash" do
+    expect(@post_codes.multiple_pc).to be_kind_of(Hash)
+  end
+  
+  it "Multiple Post Codes should have status 200" do
+    expect(@post_codes.multiple_pc_status).to eq 200
+  end
+
+  it "Multiple Post Codes should " do
+
+  end
+
+
+
 end

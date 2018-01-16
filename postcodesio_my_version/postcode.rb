@@ -30,6 +30,13 @@ class Postcodesio
     get_single_postcode('ha86lh')['result']['codes']
   end
 
+  def multiple_pc
+    get_multiple_postcodes(["ha86lh", "bs85bb", "bs11dq"])
+  end
+
+  def multiple_pc_status
+    get_multiple_postcodes(["ha86lh", "bs85bb", "bs11dq"])['status']
+  end
 
 
 end
@@ -37,5 +44,5 @@ end
 x = Postcodesio.new
 
 # puts x.get_single_postcode('ha86lh')
-puts x.single_pc_result
+# puts '-------------------------'
 # puts x.get_multiple_postcodes(["ha86lh", "bs85bb", "bs11dq"])
